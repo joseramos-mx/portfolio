@@ -16,23 +16,95 @@ import {
   User,
   GraduationCap,
   Wrench,
-  Figma,
-  Github,
-  Cloud,
-  Database,
   Cpu,
-  BotIcon as Robot,
   Mail,
   Phone,
   Linkedin,
   Twitter,
+  PlusCircle,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useRef, useState } from "react" // Importar useRef y useState
 
 export default function HeroSection() {
+  const projects = [
+    {
+      title: "Dental simulator",
+      description: "Innovative design for a surgical tool.",
+      image: "/project1.png?height=600&width=400",
+      badges: ["Medical Devices", "Prototyping", "Ergonomics"],
+    },
+    {
+      title: "Smart Home Automation System",
+      description: "Integrated IoT solution for energy efficiency.",
+      image: "/hand.jpg?height=600&width=400",
+      badges: ["IoT", "Automation", "UI/UX"],
+    },
+    {
+      title: "Advanced Robotics Arm",
+      description: "High-precision manipulator for industrial applications.",
+      image: "/project1.png?height=600&width=400",
+      badges: ["Robotics", "Control Systems", "CAD Design"],
+    },
+    {
+      title: "AI-Powered Diagnostic Tool",
+      description: "Revolutionizing medical diagnosis with AI.",
+      image: "/project1.png?height=600&width=400",
+      badges: ["AI", "Healthcare", "Machine Learning"],
+    },
+    {
+      title: "Sustainable Energy Solution",
+      description: "Eco-friendly power generation system.",
+      image: "/project1.png?height=600&width=400",
+      badges: ["Renewable Energy", "Engineering", "Sustainability"],
+    },
+    {
+      title: "VR Training Simulator",
+      description: "Immersive virtual reality for skill development.",
+      image: "/project1.png?height=600&width=400",
+      badges: ["Virtual Reality", "Simulation", "Education"],
+    },
+  ]
+
+  // State and ref for drag functionality
+  const carouselRef = useRef(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
+  const [isAnimationPaused, setIsAnimationPaused] = useState(false)
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    setIsAnimationPaused(true) // Pause animation on drag start
+    setStartX(e.pageX - carouselRef.current.offsetLeft)
+    setScrollLeft(carouselRef.current.scrollLeft)
+  }
+
+  const handleMouseLeave = () => {
+    setIsDragging(false)
+    setIsAnimationPaused(false) // Resume animation on mouse leave
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+    setIsAnimationPaused(false) // Resume animation on mouse up
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const x = e.pageX - carouselRef.current.offsetLeft
+    const walk = (x - startX) * 2 // Adjust scroll speed
+    carouselRef.current.scrollLeft = scrollLeft - walk
+  }
+
+
+
+
   return (
+    
     <div className="bg-black text-white">
       {/* Hero Section */}
       <div className="min-h-screen relative overflow-hidden">
@@ -249,13 +321,13 @@ export default function HeroSection() {
               {/* New Card for Social Media and Contact */}
               <Card className="bg-white/5 border-white/10 backdrop-blur-sm w-full max-w-md lg:max-w-none">
                 <CardHeader className="p-4 md:p-6">
-                  <CardTitle className="text-xl md:text-xl text-white mt-[-10]">Connect with Me</CardTitle>
+                  <CardTitle className="text-xl md:text-xl text-white ">Connect with Me</CardTitle>
                   <CardDescription className="text-base text-gray-400">
                     Reach out through my social channels or direct contact.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="p-4 md:p-6 pt-0 space-y-4">
-                  <div className="flex items-center gap-3 mt-[-35]">
+                  <div className="flex items-center gap-3 mt-[-20]">
                     <Mail className="w-5 h-5 text-lime-400 flex-shrink-0" />
                     <Link
                       href="mailto:your.email@example.com"
@@ -358,12 +430,73 @@ export default function HeroSection() {
         </div>
       </section>
 
+
+      {/* Projects Section - Infinite Gallery with Drag */}
+      <section id="projects" className="py-12 md:py-20 px-0 bg-gradient-to-b from-blackoverflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
+          <div className="flex items-center gap-4 justify-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent text-center h-full">
+              My <span className="font-bold">Projects</span>
+            </h2>
+          </div>
+        </div>
+
+<div
+  ref={carouselRef}
+  className="relative w-full overflow-x-scroll scrollbar-hidden cursor-grab active:cursor-grabbing"
+  onMouseDown={handleMouseDown}
+  onMouseLeave={handleMouseLeave}
+  onMouseUp={handleMouseUp}
+  onMouseMove={handleMouseMove}
+>
+
+          <div className={`flex whitespace-nowrap ${isAnimationPaused ? "" : "animate-project-scroll"}`}>
+            {/* Duplicate content for seamless loop */}
+            {[...projects].map((project, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[calc(100vw/1.5)] sm:w-[calc(100vw/2.5)] md:w-[calc(100vw/3.5)] lg:w-[calc(100vw/4.5)] xl:w-[calc(100vw/5.5)] px-2"
+              >
+                <Card className="bg-white/5 border-white/10 backdrop-blur-sm rounded-xl overflow-hidden h-[400px] flex flex-col p-0">
+                  <div className="relative w-full h-full flex-grow">
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+                      <h3 className="text-xl font-semibold text-white mb-1 truncate">{project.title}</h3>
+                      <p className="text-sm text-gray-300 mb-3 line-clamp-2">{project.description}</p>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {project.badges.map((badge, badgeIndex) => (
+                          <Badge key={badgeIndex} variant="secondary" className="bg-white/10 text-white text-xs">
+                            {badge}
+                          </Badge>
+                        ))}
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="absolute bottom-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full w-10 h-10"
+                      >
+                        <PlusCircle className="w-6 h-6" />
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* Education Section */}
       <section id="education" className="py-20 px-4 bg-gradient-to-b  to-black">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-12 justify-center">
             
-            <h2 className="text-3xl md:text-5xl font-light bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-6xl font-light bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Education
             </h2>
           </div>
@@ -438,11 +571,12 @@ export default function HeroSection() {
         </div>
       </section>
 
+
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4 bg-gradient-to-b from-black ">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-12 justify-center">
-            <h2 className="text-4xl md:text-6xl font-light bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-6xl font-light bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
               Skills
             </h2>
           </div>

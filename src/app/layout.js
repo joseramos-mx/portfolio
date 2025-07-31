@@ -20,12 +20,8 @@ export const metadata = {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "José Ramos",
-  },
-};
 
-// Configuración de viewport y theme-color
-export const viewport = {
-  themeColor: "#000000", // Color de barra superior en Safari/Chrome móvil
+  },
 };
 
 export default function RootLayout({ children }) {

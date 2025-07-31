@@ -112,6 +112,18 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Ocultar scrollbar en navegadores basados en Webkit (Chrome, Safari) */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ocultar scrollbar en Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
