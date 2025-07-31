@@ -967,6 +967,23 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
+            {/* Footer */}
+      <footer className="bg-gray-950 py-8 px-4 text-center text-gray-500 text-sm">
+        <div className="max-w-7xl mx-auto">
+          <p>&copy; {new Date().getFullYear()} Jose. All rights reserved.</p>
+          <p className="mt-2">
+            Built with{" "}
+            <Link href="https://nextjs.org" className="hover:text-white transition-colors">
+              Next.js
+            </Link>{" "}
+            and{" "}
+            <Link href="https://ui.shadcn.com" className="hover:text-white transition-colors">
+              shadcn/ui
+            </Link>
+            .
+          </p>
+        </div>
+      </footer>
 
       {/* Custom CSS for enhanced animations */}
       <style jsx>{`
