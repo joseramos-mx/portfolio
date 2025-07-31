@@ -36,21 +36,6 @@ export default function HeroSection() {
     <div className="bg-black text-white">
       {/* Hero Section */}
       <div className="min-h-screen relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Floating Icons with enhanced styling */}
-          <Home className="absolute top-20 left-10 w-6 h-6 text-lime-400/20 opacity-60 animate-pulse" />
-          <Palette className="absolute top-40 left-1/4 w-7 h-7 text-purple-400/25 opacity-40 animate-pulse" />
-          <Code className="absolute bottom-40 left-12 w-6 h-6 text-green-400/30 opacity-45 -rotate-12 animate-bounce" />
-          <Camera className="absolute bottom-32 right-20 w-6 h-6 text-pink-400/25 opacity-50 animate-pulse" />
-          <Lightbulb className="absolute top-1/3 right-10 w-5 h-5 text-yellow-400/30 opacity-60 rotate-45 animate-bounce" />
-          <Sparkles className="absolute bottom-1/3 left-16 w-4 h-4 text-cyan-400/20 opacity-30 animate-pulse" />
-          <Zap className="absolute top-1/2 left-8 w-5 h-5 text-orange-400/25 opacity-35 rotate-90 animate-bounce" />
-
-          {/* Gradient Orbs */}
-          <div className="absolute top-1/4 left-1/3 w-32 h-32 bg-lime-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
-        </div>
 
         {/* Navigation with backdrop blur */}
         <nav className="flex justify-center pt-8 pb-16 relative z-10">
@@ -190,16 +175,16 @@ export default function HeroSection() {
           </div>
 
           {/* Enhanced Main Title */}
-          <div className="flex items-center gap-6 mb-8 group">
+          <div className="flex items-center mb-8 group">
             <div className="relative">
               <div className="absolute inset-0 w-10 h-10 bg-lime-400/20 rounded-full blur-xl animate-pulse"></div>
             </div>
-            <h1 className="text-3xl md:text-8xl lg:text-8xl font-light leading-tight bg-gradient-to-r font-serif from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-8xl lg:text-8xl font-light leading-tight bg-gradient-to-r font-serif from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
               I'm Jose,
             </h1>
           </div>
 
-          <h1 className="text-3xl md:text-8xl lg:text-8xl mt-[-45px] font-light mb-8 leading-tight bg-gradient-to-r from-orange-400 via-pink-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-8xl lg:text-8xl mt-[-45px] font-light mb-8 leading-tight bg-gradient-to-r from-orange-400 via-pink-300 to-indigo-400 bg-clip-text text-transparent">
             Passionate maker.
           </h1>
 
@@ -210,16 +195,19 @@ export default function HeroSection() {
               className="bg-gradient-to-r from-lime-400 to-green-400 text-black px-10 py-4 rounded-full font-medium hover:from-lime-300 hover:to-green-300 transition-all duration-300 shadow-lg shadow-lime-400/25 hover:shadow-lime-400/40 hover:scale-105 group"
             >
               <Palette className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              See work
+              See projects
             </Button>
+            <Link href="#about" className="transition-transform">
             <Button
               variant="outline"
               size="lg"
               className="border-2 border-white/20 text-white px-10 py-4 rounded-full font-medium hover:border-lime-400/50 hover:text-lime-400 transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10 hover:scale-105 group"
             >
               <Home className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              Shop products
+              Know about me
             </Button>
+            </Link>
+            
           </div>
         </div>
 
@@ -261,8 +249,8 @@ export default function HeroSection() {
               {/* New Card for Social Media and Contact */}
               <Card className="bg-white/5 border-white/10 backdrop-blur-sm w-full max-w-md lg:max-w-none">
                 <CardHeader className="p-4 md:p-6">
-                  <CardTitle className="text-xl md:text-xl text-white mt-[-25]">Connect with Me</CardTitle>
-                  <CardDescription className="text-base text-gray-400 mb-[-20]">
+                  <CardTitle className="text-xl md:text-xl text-white mt-[-10]">Connect with Me</CardTitle>
+                  <CardDescription className="text-base text-gray-400">
                     Reach out through my social channels or direct contact.
                   </CardDescription>
                 </CardHeader>
@@ -302,20 +290,20 @@ export default function HeroSection() {
             {/* Content Section */}
             <div className="lg:col-span-2 space-y-6 md:space-y-8">
               <div className="space-y-4 md:space-y-6">
-                <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-300 leading-relaxed px-5">
                   I am José a student of the master in biomedical engineering at VIU. my passion for learning and
                   showing others what is doable with very little making skills is what got me interested in areas like
                   additive manufacture, web design, entrepreneurship and hardware. I really believe people can show off
                   the best of themselves using technology and innovation as an empowerer, always being conscious of
                   differences, equity and progress.
                 </p>
-                <p className="text-base md:text-lg text-gray-400 leading-relaxed font-serif">
+                <p className="text-base md:text-lg text-gray-400 leading-relaxed font-serif px-5">
                   I believe that technology and innovation are powerful tools that can empower individuals and drive
                   societal progress. My goal is to harness these tools to create equitable solutions that address
                   diverse needs and promote inclusivity. I am dedicated to continuous learning and growth, always
                   seeking new ways to apply my skills and knowledge to make a positive impact.
                 </p>
-                <p className="text-base md:text-lg text-gray-400 leading-relaxed font-serif">
+                <p className="text-base md:text-lg text-gray-400 leading-relaxed font-serif px-5">
                   I am eager to connect with professionals and peers in the engineering, technology, and biomedical
                   sectors to share insights, collaborate on projects, and explore new opportunities. Together, we can
                   push the boundaries of what is possible and contribute to a better, more innovative future.
@@ -374,7 +362,8 @@ export default function HeroSection() {
       <section id="education" className="py-20 px-4 bg-gradient-to-b  to-black">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-12 justify-center">
-            <h2 className="text-xl md:text-5xl font-light bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            
+            <h2 className="text-3xl md:text-5xl font-light bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Education
             </h2>
           </div>
