@@ -9,8 +9,8 @@ const SkillsSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-4 mb-16 justify-center">
           <h2 className="text-4xl md:text-6xl font-light text-center">
-            <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent font-light">
-              Core Competencies
+            <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent font-bold">
+              Core <span className='text-white font-light'>Competencies</span>
             </span>
           </h2>
         </div>

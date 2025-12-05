@@ -22,6 +22,7 @@ import {
   Linkedin,
   Twitter,
   PlusCircle,
+  Heart,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -34,9 +35,10 @@ import EducationSection from "./EducationSection"
 import ProjectsSection from "./ProjectsSection"
 import AboutSection from "./AboutSection"
 import FaultyTerminal from './ui/FaultyTerminal';
+import HeroSection from "./HeroSection"
 
 
-export default function Page() {
+export default function PagePortfolio() {
 
   return (
     
@@ -59,17 +61,9 @@ export default function Page() {
 
       <footer className="bg-gray-950 py-8 px-4 text-center text-gray-500 text-sm">
         <div className="max-w-7xl mx-auto">
-          <p>&copy; {new Date().getFullYear()} Jose. All rights reserved.</p>
-          <p className="mt-2">
-            Built with{" "}
-            <Link href="https://nextjs.org" className="hover:text-white transition-colors">
-              Next.js
-            </Link>{" "}
-            and{" "}
-            <Link href="https://ui.shadcn.com" className="hover:text-white transition-colors">
-              shadcn/ui
-            </Link>
-            .
+          <p>&copy; {new Date().getFullYear()} Jose Ramos. All rights reserved. Powered by RMS Innovation.</p>
+          <p className="mt-2 justify-center flex items-center gap-1">
+            Built with <Heart className="h-4"/>
           </p>
         </div>
       </footer>
