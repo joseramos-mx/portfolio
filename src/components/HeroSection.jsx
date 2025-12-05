@@ -17,8 +17,12 @@ import {
   Wrench, 
   Briefcase 
 } from 'lucide-react';
-import FaultyTerminal from './ui/FaultyTerminal'; 
 import TextType from './ui/TextType';
+import dynamic from 'next/dynamic';
+
+const FaultyTerminal = dynamic(() => import('./ui/FaultyTerminal'), {
+  ssr: false 
+});
 
 const HeroSection = () => {
   
